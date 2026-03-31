@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrl: './contact-us-component.css',
 })
 export class ContactUsComponent {
+  private readonly router = inject(Router);
+
   isSubmitted = false;
 
   userDetails = {
@@ -23,7 +25,7 @@ export class ContactUsComponent {
     { title: 'Address', value: 'Toronto, Canada' }
   ];
 
-  constructor(private readonly router: Router) {}
+  constructor() {}
 
   submitForm(form: NgForm) {
     if (form.valid) {

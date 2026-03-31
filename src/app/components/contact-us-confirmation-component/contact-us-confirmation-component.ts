@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
@@ -8,11 +8,13 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './contact-us-confirmation-component.css',
 })
 export class ContactUsConfirmationComponent implements OnInit {
+  private readonly route = inject(ActivatedRoute);
+
   name: string | null = '';
   email: string | null = '';
   message: string | null = '';
 
-  constructor(private readonly route: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {
     //this.accessByQueryParams();

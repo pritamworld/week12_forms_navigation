@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
   styleUrl: './reactive-form-component.css',
 })
 export class ReactiveFormComponent {
+  private readonly fb = inject(FormBuilder);
   userForm: FormGroup;
 
   genders = [
@@ -16,7 +17,7 @@ export class ReactiveFormComponent {
     { value: 'other', label: 'Other' }
   ];
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor() {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
