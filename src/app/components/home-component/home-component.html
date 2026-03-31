@@ -1,0 +1,117 @@
+<div class="bg-gray-100 min-h-screen">
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+      Welcome to Angular Learning Hub
+    </h1>
+    <p class="max-w-2xl mx-auto text-lg">
+      Learn Angular Navigation, Template Driven Forms, and Reactive Forms with practical examples.
+    </p>
+
+    <button routerLink="/about"
+      class="mt-6 bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+      Explore More
+    </button>
+  </section>
+
+  <!-- Topics Section -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+
+    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">
+      Core Angular Concepts
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      @for(topic of topics; track topic){
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+
+        <h3 class="text-xl font-semibold text-blue-500 mb-3">
+          {{ topic.title }}
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+          {{ topic.description }}
+        </p>
+
+        @if(topic.link){
+        <a [routerLink]="topic.link" class="text-blue-600 font-medium hover:underline">
+          Learn More →
+        </a>
+        }
+
+      </div>
+      }
+
+    </div>
+
+  </section>
+
+  <!-- Details Section -->
+  <section class="bg-white py-12">
+
+    <div class="max-w-5xl mx-auto px-6 space-y-8">
+
+      <!-- Navigation -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-2">
+          Angular Navigation
+        </h2>
+        <p class="text-gray-600">
+          Angular uses a powerful Router module to navigate between views.
+          You can define routes, use <span class="font-medium">routerLink</span>,
+          and manage navigation seamlessly in single-page applications.
+        </p>
+      </div>
+
+      <!-- Template Forms -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-2">
+          Template Driven Forms
+        </h2>
+        <p class="text-gray-600">
+          Template Driven Forms rely on directives like
+          <span class="font-medium">ngModel</span> and <span class="font-medium">ngForm</span>.
+          They are simple to use and ideal for small-scale forms.
+        </p>
+      </div>
+
+      <!-- Reactive Forms -->
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-2">
+          Reactive Forms
+        </h2>
+        <p class="text-gray-600">
+          Reactive Forms provide a model-driven approach using
+          <span class="font-medium">FormGroup</span> and <span class="font-medium">FormControl</span>.
+          They are scalable, testable, and best for complex applications.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-blue-500 text-white text-center py-12">
+    <h2 class="text-2xl font-bold mb-2">
+      Start Building Angular Apps Today
+    </h2>
+    <p class="mb-4">
+      Practice navigation, forms, and UI design with real-world examples.
+    </p>
+
+    <div class="flex justify-center gap-4">
+      <button routerLink="/contact"
+        class="bg-white text-blue-500 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+        Contact Us
+      </button>
+
+      <button routerLink="/about" class="bg-blue-700 px-6 py-2 rounded-lg hover:bg-blue-800 transition">
+        About Us
+      </button>
+    </div>
+  </section>
+
+</div>

@@ -1,1 +1,73 @@
-<p>about-us-component works!</p>
+<div class="bg-gray-100 min-h-screen">
+
+  <!-- Hero Section -->
+  <section class="bg-blue-600 text-white py-16 text-center">
+    <h1 class="text-4xl font-bold mb-4">About Us</h1>
+    <p class="max-w-2xl mx-auto text-lg">
+      We are passionate about building modern web applications and empowering students
+      with real-world development skills.
+    </p>
+  </section>
+
+  <!-- Content Section -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Who We Are -->
+    <div class="grid md:grid-cols-2 gap-10 items-center mb-12">
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Who We Are</h2>
+        <p class="text-gray-600 mb-4">
+          We are a team of experienced software engineers, educators, and mentors focused
+          on delivering high-quality training in full-stack development.
+        </p>
+        <p class="text-gray-600">
+          Our mission is to simplify complex technologies like Angular, Node.js, and Cloud
+          computing into easy-to-understand learning experiences.
+        </p>
+      </div>
+
+      <img src="https://source.unsplash.com/600x400/?team,technology" alt="Team" class="rounded-2xl shadow-lg" />
+
+    </div>
+
+    <!-- Our Mission -->
+    <div class="bg-white p-8 rounded-2xl shadow mb-12 text-center">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>
+      <p class="text-gray-600 max-w-3xl mx-auto">
+        To bridge the gap between academic learning and industry requirements by providing
+        hands-on coding experience, real-world projects, and career-focused mentorship.
+      </p>
+    </div>
+
+    <!-- Our Values -->
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+
+      @for(value of values; track value){
+      <div class="bg-white p-6 rounded-2xl shadow text-center hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-blue-500 mb-2">
+          {{ value.title }}
+        </h3>
+        <p class="text-gray-600">
+          {{ value.description }}
+        </p>
+      </div>
+      }
+
+    </div>
+
+    <!-- Call to Action -->
+    <div class="bg-blue-500 text-white text-center py-10 rounded-2xl">
+      <h2 class="text-2xl font-bold mb-2">Join Our Learning Journey</h2>
+      <p class="mb-4">
+        Start your journey into full-stack development with us today.
+      </p>
+      <button routerLink="/contact"
+        class="bg-white text-blue-500 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+        Contact Us
+      </button>
+    </div>
+
+  </section>
+
+</div>
