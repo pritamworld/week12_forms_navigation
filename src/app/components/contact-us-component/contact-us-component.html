@@ -1,1 +1,92 @@
-<p>contact-us-component works!</p>
+<div class="bg-gray-100 min-h-screen">
+
+  <!-- Header -->
+  <section class="bg-blue-600 text-white py-16 text-center">
+    <h1 class="text-4xl font-bold mb-4">Contact Us</h1>
+    <p class="max-w-2xl mx-auto text-lg">
+      We'd love to hear from you! Reach out for any queries, support, or collaboration.
+    </p>
+  </section>
+
+  <!-- Main Section -->
+  <section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10">
+
+    <!-- Contact Info -->
+    <div class="space-y-6">
+
+      <h2 class="text-2xl font-semibold text-gray-800">Get in Touch</h2>
+
+      @for(info of contactInfo; track info){
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="text-lg font-semibold text-blue-500">
+          {{ info.title }}
+        </h3>
+        <p class="text-gray-600">
+          {{ info.value }}
+        </p>
+      </div>
+      }
+
+    </div>
+
+    <!-- Contact Form -->
+    <div class="bg-white p-8 rounded-2xl shadow-lg">
+
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+        Send Message
+      </h2>
+
+      <form #contactForm="ngForm" (ngSubmit)="submitForm(contactForm)" class="space-y-4">
+
+        <!-- Name -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Name</label>
+          <input type="text" name="name" [(ngModel)]="userDetails.name" required
+            class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none" />
+
+          @if(contactForm.controls["name"]?.touched && contactForm.controls["name"]?.invalid){
+          <p class="text-red-500 text-sm mt-1">Name is required</p>
+          }
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Email</label>
+          <input type="email" name="email" [(ngModel)]="userDetails.email" required email
+            class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none" />
+
+          @if(contactForm.controls["email"]?.touched && contactForm.controls["email"]?.invalid){
+          <p class="text-red-500 text-sm mt-1">Valid email required</p>
+          }
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-1">Message</label>
+          <textarea name="message" rows="4" [(ngModel)]="userDetails.message" required
+            class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"></textarea>
+
+          @if(contactForm.controls["message"]?.touched && contactForm.controls["message"]?.invalid){
+          <p class="text-red-500 text-sm mt-1">Message is required</p>
+          }
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+          Send Message
+        </button>
+
+        <!-- Success Message -->
+        @if(isSubmitted){
+        <p class="text-green-600 text-sm mt-2 text-center">
+          ✅ Your message has been sent successfully!
+        </p>
+        }
+
+      </form>
+
+    </div>
+
+  </section>
+
+</div>

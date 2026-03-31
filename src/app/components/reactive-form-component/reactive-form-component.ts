@@ -8,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class ReactiveFormComponent {
 
+  genders = [
+    { value: 'male', label: 'Male' },
+    { value: 'female', label: 'Female' },
+    { value: 'other', label: 'Other' }
+  ];
+
+  constructor() { }
+
+  submitForm() {
+    // Handle form submission logic here
+    console.log('Form submitted');
+  }
 }

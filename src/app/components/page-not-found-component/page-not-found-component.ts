@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-page-not-found-component',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './page-not-found-component.css',
 })
 export class PageNotFoundComponent {
+  private readonly location = inject(Location);
+  showTip = true;
 
+  constructor() {}
+
+  goBack() {
+    this.location.back();
+  }
 }
