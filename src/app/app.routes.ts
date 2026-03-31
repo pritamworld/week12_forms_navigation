@@ -9,16 +9,46 @@ import { HomeComponent } from './components/home-component/home-component';
 import { ContactUsConfirmationComponent } from './components/contact-us-confirmation-component/contact-us-confirmation-component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutUsComponent },
-  { path: 'contact', component: ContactUsComponent },
-  { path: 'reactive-form', component: ReactiveFormComponent },
-  { path: 'template-form', component: TemplateDrivenFormComponent },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    title: "Home Page",
+    component: HomeComponent
+  },
+  {
+    path: 'about',
+    title: "About Us",
+    component: AboutUsComponent
+  },
+  {
+    path: 'contact',
+    title: "Contact Us",
+    component: ContactUsComponent
+  },
+  {
+    path: 'reactive-form',
+    title: "Reactive Form Example",
+    component: ReactiveFormComponent
+  },
+  {
+    path: 'template-form',
+    title: "Template-Driven Form Example",
+    component: TemplateDrivenFormComponent
+  },
   // query params route for contact confirmation
   //{ path: 'contact-confirmation', component: ContactUsConfirmationComponent },
   // route with route parameters for contact confirmation
-  { path: 'contact-confirmation/:name/:email/:message', component: ContactUsConfirmationComponent },
+  { path: 'contact-confirmation/:name/:email/:message',
+    title: "Contact Confirmation",
+    component: ContactUsConfirmationComponent
+  },
   // Wildcard route for a 404 page
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**',
+    title: "Page Not Found",
+    component: PageNotFoundComponent
+  }
 ];
