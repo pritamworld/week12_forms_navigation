@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './components/page-not-found-component/pag
 import { ReactiveFormComponent } from './components/reactive-form-component/reactive-form-component';
 import { TemplateDrivenFormComponent } from './components/template-driven-form-component/template-driven-form-component';
 import { HomeComponent } from './components/home-component/home-component';
+import { ContactUsConfirmationComponent } from './components/contact-us-confirmation-component/contact-us-confirmation-component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,5 +15,10 @@ export const routes: Routes = [
   { path: 'contact', component: ContactUsComponent },
   { path: 'reactive-form', component: ReactiveFormComponent },
   { path: 'template-form', component: TemplateDrivenFormComponent },
+  // query params route for contact confirmation
+  //{ path: 'contact-confirmation', component: ContactUsConfirmationComponent },
+  // route with route parameters for contact confirmation
+  { path: 'contact-confirmation/:name/:email/:message', component: ContactUsConfirmationComponent },
+  // Wildcard route for a 404 page
   { path: '**', component: PageNotFoundComponent }
 ];
