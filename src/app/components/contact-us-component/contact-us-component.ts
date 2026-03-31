@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us-component',
@@ -8,6 +9,8 @@ import { NgForm, FormsModule } from '@angular/forms';
   styleUrl: './contact-us-component.css',
 })
 export class ContactUsComponent {
+  private readonly router = inject(Router);
+
   isSubmitted = false;
 
   userDetails = {
@@ -29,7 +32,37 @@ export class ContactUsComponent {
       console.log(this.userDetails);
       this.isSubmitted = true;
 
+      // this.sendByQueryParams()
+      // this.sendByState();
+      this.sendByParamMap();
+
       form.resetForm();
     }
+  }
+
+  sendByQueryParams() {
+    this.router.navigate(['/contact-confirmation'], {
+      queryParams: {
+        ...this.userDetails
+      }
+    });
+  }
+
+  sendByState() {
+    this.router.navigate(['/contact-confirmation'], {
+      state: {
+        name: this.userDetails.name,
+        email: this.userDetails.email,
+        message: this.userDetails.message
+      }
+    });
+  }
+
+  sendByParamMap() {
+    //contact-confirmation/:name/:email/:message
+    this.router.navigate(['/contact-confirmation',
+      this.userDetails.name,
+      this.userDetails.email,
+      this.userDetails.message]);
   }
 }

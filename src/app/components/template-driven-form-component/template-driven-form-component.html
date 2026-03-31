@@ -7,77 +7,77 @@
     Template Driven Form
   </h2>
 
-  <form class="space-y-4">
+  <form #userForm="ngForm" class="space-y-4" (ngSubmit)="submitForm(userForm)">
 
     <!-- Name -->
     <div>
       <label class="block text-sm font-medium text-gray-600 mb-1">Name</label>
-      <input type="text" name="name" required
+      <input type="text" name="name" [(ngModel)]="userDetails.name" required
         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
 
-      <!-- @if(userForm.controls["name"]?.touched && userForm.controls["name"]?.invalid){
+      @if(userForm.controls["name"]?.touched && userForm.controls["name"]?.invalid){
       <div class="text-red-500 text-sm mt-1">
         Name is required.
       </div>
-      } -->
+      }
     </div>
 
     <!-- Email -->
     <div>
       <label class="block text-sm font-medium text-gray-600 mb-1">Email</label>
-      <input type="email" name="email" required email
+      <input type="email" name="email" [(ngModel)]="userDetails.email" required email
         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
 
-      <!-- @if(userForm.controls["email"]?.touched && userForm.controls["email"]?.invalid){
+      @if(userForm.controls["email"]?.touched && userForm.controls["email"]?.invalid){
       <div class="text-red-500 text-sm mt-1">
         Please enter a valid email address.
       </div>
-      } -->
+      }
     </div>
 
     <!-- Address -->
     <div>
       <label class="block text-sm font-medium text-gray-600 mb-1">Address</label>
-      <input type="text" name="address" required
+      <input type="text" name="address" [(ngModel)]="userDetails.address" required
         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
 
-      <!-- @if(userForm.controls["address"]?.touched && userForm.controls["address"]?.invalid){
+      @if(userForm.controls["address"]?.touched && userForm.controls["address"]?.invalid){
       <div class="text-red-500 text-sm mt-1">
         Address is required.
       </div>
-      }-->
+      }
     </div>
 
     <!-- Mobile -->
     <div>
       <label class="block text-sm font-medium text-gray-600 mb-1">Mobile Number</label>
-      <input type="tel" name="mobile" required pattern="[0-9]{10}"
+      <input type="tel" name="mobile" [(ngModel)]="userDetails.mobile" required pattern="[0-9]{10}"
         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
 
-      <!-- @if(userForm.controls["mobile"]?.touched && userForm.controls["mobile"]?.invalid){
+      @if(userForm.controls["mobile"]?.touched && userForm.controls["mobile"]?.invalid){
       <div class="text-red-500 text-sm mt-1">
         Please enter a valid mobile number.
       </div>
-      } -->
+      }
     </div>
 
     <!-- Age -->
     <div>
       <label class="block text-sm font-medium text-gray-600 mb-1">Age</label>
-      <input type="number" name="age" required min="20" max="60"
+      <input type="number" name="age" [(ngModel)]="userDetails.age" required min="20" max="60"
         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
 
-      <!-- @if(userForm.controls["age"]?.touched && userForm.controls["age"]?.invalid){
+      @if(userForm.controls["age"]?.touched && userForm.controls["age"]?.invalid){
       <div class="text-red-500 text-sm mt-1">
         Please enter a valid age (20–60).
       </div>
-      }-->
+      }
     </div>
 
     <!-- Gender (using @for) -->
     <div>
       <label class="block text-sm font-medium text-gray-600 mb-1">Gender</label>
-      <select name="gender" required
+      <select name="gender" [(ngModel)]="userDetails.gender" required
         class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
         <option value="" disabled>Select Gender</option>
 
@@ -87,11 +87,11 @@
 
       </select>
 
-      <!-- @if(userForm.controls["gender"]?.touched && userForm.controls["gender"]?.invalid){
+      @if(userForm.controls["gender"]?.touched && userForm.controls["gender"]?.invalid){
       <div class="text-red-500 text-sm mt-1">
         Please select a gender.
       </div>
-      } -->
+      }
     </div>
 
     <!-- Submit -->

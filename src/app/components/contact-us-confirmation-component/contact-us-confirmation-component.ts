@@ -9,6 +9,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 })
 export class ContactUsConfirmationComponent implements OnInit {
 
+  private readonly route = inject(ActivatedRoute);
+
   name: string | null = '';
   email: string | null = '';
   message: string | null = '';
@@ -16,6 +18,31 @@ export class ContactUsConfirmationComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    // this.accessByQueryParams();
+    // this.accessByState();
+    this.accessByParamMap();
+  }
 
+  accessByQueryParams() {
+    this.route.queryParamMap.subscribe(params => {
+      this.name = params.get('name');
+      this.email = params.get('email');
+      this.message = params.get('message');
+    });
+  }
+
+  accessByState() {
+    const navigation = history.state;
+    this.name = navigation.name || '';
+    this.email = navigation.email || '';
+    this.message = navigation.message || '';
+  }
+
+  accessByParamMap() {
+    this.route.paramMap.subscribe(params => {
+      this.name = params.get('name');
+      this.email = params.get('email');
+      this.message = params.get('message');
+    });
   }
 }

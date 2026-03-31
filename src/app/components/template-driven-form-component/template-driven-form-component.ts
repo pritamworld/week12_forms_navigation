@@ -11,8 +11,14 @@ export class TemplateDrivenFormComponent {
 
   // Model for form data
   userDetails = {
+    name: '',
+    email: '',
+    address: '',
+    mobile: '',
+    age: null,
+    gender: ''
   }
-  
+
   // Used for @for loop in dropdown
   genders = [
     { value: 'male', label: 'Male' },
